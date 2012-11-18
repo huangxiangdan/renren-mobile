@@ -1,0 +1,15 @@
+
+A third party, non-official renren API gem created by huangxiangdan. Inspired by ballantyne's weibo API gem.
+
+To install the gem simply enter:
+
+  gem install renren-mobile
+
+This is a minimalistic API implementation, where all function calls goes through a single method. For example to publish a feed item one might do the following:
+
+  param = {:method, "feed.publishFeed", :name, "foo", :description, "bar", :url, "http://jihua.fm"}
+  renren = RenrenMobile::Base.new(token)
+  renren.call_method(param)
+
+== Sites using the renren-mobile gem
+ 课程格子 [http://kechengbiao.me]
