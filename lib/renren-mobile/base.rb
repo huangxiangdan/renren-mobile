@@ -26,7 +26,7 @@ module RenrenMobile
       MultiJson.decode(Net::HTTP.post_form(URI.parse("http://api.m.renren.com/api/#{method}"), update_params(opts)).body)
     end
     
-    def upload_file(method = nil, filename, opts = {})
+    def upload_file(filename, method = nil, opts = {})
       unless method
         method = opts[:method]
         opts.delete(:method)
