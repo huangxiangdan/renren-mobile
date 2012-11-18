@@ -24,7 +24,7 @@ module RenrenMobile
     
     def upload_file(method, filename, opts = {})
       method = method.gsub(".", "/")
-      MultiJson.decode(RestClient.post('http://api.renren.com/restserver.do', update_params(opts).merge(:data => File.new(filename))))
+      MultiJson.decode(RestClient.post('http://api.m.renren.com/api/#{method}', update_params(opts).merge(:data => File.new(filename))))
     end
     
     private
