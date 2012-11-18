@@ -17,20 +17,12 @@ module RenrenMobile
       @params[:access_token] = access_token
     end
     
-    def call_method(method = nil, opts = {})
-      unless method
-        method = opts[:method]
-        opts.delete(:method)
-      end
+    def call_method(method, opts = {})
       method = method.gsub(".", "/")
       MultiJson.decode(Net::HTTP.post_form(URI.parse("http://api.m.renren.com/api/#{method}"), update_params(opts)).body)
     end
     
-    def upload_file(filename, method = nil, opts = {})
-      unless method
-        method = opts[:method]
-        opts.delete(:method)
-      end
+    def upload_file(method, filename, opts = {})
       method = method.gsub(".", "/")
       MultiJson.decode(RestClient.post('http://api.renren.com/restserver.do', update_params(opts).merge(:data => File.new(filename))))
     end
